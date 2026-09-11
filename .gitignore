@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.log
+*.onnx
+.hsemotion/
+.deepface/
+.venv/
+venv/
+.DS_Store
+.vercel/

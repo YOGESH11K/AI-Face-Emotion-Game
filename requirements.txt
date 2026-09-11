@@ -1,0 +1,11 @@
+streamlit
+pillow
+numpy
+opencv-python==4.10.0.84
+deepface
+tf-keras
+
+# Optional alternative pre-trained model (eNet-B0 / AffectNet).
+# Enable with EMOTION_BACKEND=hsemotion. Downloads its weights once.
+onnxruntime
+hsemotion-onnx

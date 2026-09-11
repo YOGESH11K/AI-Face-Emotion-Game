@@ -1,0 +1,22 @@
+# Real-time emotion recognition system (use Python 3.12)
+# The game (app.py) and the real-time system share these packages.
+streamlit
+pillow
+numpy
+opencv-python
+deepface
+tf-keras
+
+# Optional pre-trained helper model for the emotion ensemble:
+#   Download once to ~/.deepface/weights/emotion-ferplus-8.onnx from
+#   https://huggingface.co/onnxmodelzoo/emotion-ferplus-8/resolve/main/emotion-ferplus-8.onnx
+#   If absent, the app automatically falls back to DeepFace alone.
+
+# Optional alternative pre-trained model (eNet-B0 / AffectNet).
+# Enable with EMOTION_BACKEND=hsemotion. Downloads its weights once.
+onnxruntime
+hsemotion-onnx
+
+# Test the realtime system:
+#   py -3.12 realtime_webcam.py
+#   py -3.12 test_emotion_system.py

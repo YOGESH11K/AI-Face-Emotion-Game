@@ -1,0 +1,16 @@
+services:
+  - name: emotion-detection-api
+    type: web
+    runtime: python
+    plan: free
+    rootDir: .
+    buildCommand: pip install --upgrade pip && pip install -r api/requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: HSEMOTION_MODEL
+        value: enet_b0_8_best_vgaf
+      - key: HSEMOTION_MODEL_PATH
+        value: /tmp/hsemotion/enet_b0_8_best_vgaf.onnx
+      - key: PYTHON_VERSION
+        value: 3.12.3
