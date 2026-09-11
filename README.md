@@ -416,3 +416,24 @@ test_emotion_system.py test suite
   Frame skipping keeps the display responsive.
 - **Expression ≠ feeling.** The system classifies the *visible facial
   expression*. It cannot and does not know the person's real internal emotion.
+
+
+---
+
+## ?? Deployment
+
+| Piece | Where | What |
+|-------|-------|------|
+| Emotion **API** (backend) | Render | `api/main.py` - FastAPI + OpenCV face detection + eNet-B0 (ONNX) emotion model. No TensorFlow - fits the free 512MB tier. |
+| **Frontend** page | Vercel | `frontend/index.html` - loads at **https://stem-emotion.vercel.app**, uploads a face photo and shows the AI emotion read. |
+| Repo | GitHub | https://github.com/YOGESH11K/emotiondetection |
+
+### Deploy the backend to Render (one click)
+1. Go to https://dashboard.render.com and sign in.
+2. Click **New** ? **Blueprint**.
+3. Connect/select the repo **YOGESH11K/emotiondetection**.
+4. Render reads `render.yaml` and creates the free `emotion-detection-api` web service automatically.
+5. After it is live, the API reports model-ready at `https://emotion-detection-api.onrender.com/health`.
+
+### Frontend on Vercel
+Already deployed to **https://stem-emotion.vercel.app** (project `stem-emotion`, connected to the GitHub repo). The page calls the Render backend at `/predict`. If your Render URL has a different auto-generated suffix, update the `API` constant in `frontend/index.html` and redeploy.
